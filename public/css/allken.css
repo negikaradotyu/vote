@@ -1,0 +1,16 @@
+.kenlist {
+    list-style-type: none; /* リストスタイルをなしに設定 */
+    padding: 2px; 
+    display: flex;/* リストの内側の余白を0に設定 */
+    flex-direction: row; /* リスト要素を横並びに配置 */
+    flex-wrap: wrap; /* 要素が親要素からはみ出る場合に折り返し */
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+li {
+
+    margin-right: 5px;
+    margin-bottom: 5px; /* list要素同士の間隔を2pxに設定 */
+}
+
