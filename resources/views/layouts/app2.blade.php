@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
     <link rel="stylesheet" href="{{'/css/style.css'}}">
+    <link rel="stylesheet" href="{{'/css/senkyo.css'}}">
     <link rel="stylesheet" href="{{'/css/style copy.css'}}">
     <link rel="stylesheet" href="{{'/css/map.css'}}">
     <link rel="stylesheet" href="{{'/css/allken.css'}}">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -69,7 +71,7 @@
         img.addEventListener('animationend', handleAnimationEnd);
     });
 </script>
-<main>
+<main class="centered-main">
     <div class="top-menu">
         <div class="links">
             <a href="/kokusei">国政選挙</a>
@@ -82,10 +84,11 @@
 
 
 
-    @yield('content')
+    @yield('kensenkyo')
+</main>
     <footer>
         <p class="info"> © Tsurugenef</p>
     </footer>
-    </main>
+    
 </body>
 </html>

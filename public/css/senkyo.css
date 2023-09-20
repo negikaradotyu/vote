@@ -1,0 +1,109 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+.centered-main {
+    display: flex; /* Flexboxを使用 */
+    min-height: 100vh; /* ビューポートの高さいっぱいにmain要素を広げる */
+    width: 90%;
+    background-color: aquamarine;
+    margin: 0 auto; /* 左右の余白を自動調整して中央に寄せる */
+}
+.kouhosha-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* コンテンツを水平方向に中央に配置 */
+}
+.job  {
+    white-space: nowrap; /* テキストが改行されないように設定 */
+    overflow: hidden; /* テキストのオーバーフローを隠す */
+    text-overflow: ellipsis; /* テキストがオーバーフローした場合に省略記号（...）を表示 */
+}
+
+.kouhosha{
+    width: auto;
+    height: 250px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(229, 251, 133);
+    margin: 10px;
+    border-radius: 20px;
+
+}
+
+.kouho-profile {
+    width: auto;
+    white-space: nowrap; /* テキストが改行されないように設定 */
+    margin: 5px;
+    font-size: 15px;
+}
+
+.job{
+    width: 120px;
+    overflow: hidden; /* テキストのオーバーフローを隠す */
+    text-overflow: ellipsis; /* テキストがオーバーフローした場合に省略記号（...）を表示 */
+}
+.party{
+    width: 120px;
+    overflow: hidden; /* テキストのオーバーフローを隠す */
+    text-overflow: ellipsis; /* テキストがオーバーフローした場合に省略記号（...）を表示 */
+}
+
+
+.face{
+    margin: auto auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;    
+}
+.face a{
+    margin: auto auto;
+}
+.no-image{
+    margin: auto auto;
+    
+}
+
+
+.form-group-tohyo{
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+button{
+    font-size: 16px;
+}
+i{
+    margin: 2px 8px 2px 2px;
+}
+/* ボタンの通常状態 */
+.form-group-tohyo button {
+    background-color: #f9f9f9; /* ボタンの背景色 */
+    color: #170404; /* ボタンのテキスト色 */
+    padding: 5px 5px; /* ボタンの内側の余白 */
+    border-radius: 5px; /* ボタンの角を丸める */
+    cursor: pointer; /* マウスポインターを手の形にする */
+    transition: transform 0.2s, box-shadow 0.5s; /* 変化時のアニメーション設定 */
+}
+
+/* ボタンを浮かせる */
+.form-group-tohyo button:hover {
+    transform: translateY(-3px); /* Y軸方向に少し浮かせる */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* 影を追加 */
+    background-color: #fa8f68; /* ボタンの背景色 */
+    color: #170404; /* ボタンのテキスト色 */
+    font-weight: 800;
+}
+
+/* ボタンを押し込むアクション */
+.form-group-tohyo button:active {
+    transform: translateY(1px); /* Y軸方向に押し込む */
+    box-shadow: none; /* クリック時に影を削除 */
+    background-color: #f9f9f9; /* ボタンの背景色 */
+    color: #170404; /* ボタンのテキスト色 */
+}

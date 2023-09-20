@@ -4,7 +4,7 @@
     display: flex;/* リストの内側の余白を0に設定 */
     flex-direction: row; /* リスト要素を横並びに配置 */
     flex-wrap: wrap; /* 要素が親要素からはみ出る場合に折り返し */
-    font-size: 20px;
+    font-size: 15px;
     margin-left: 5px;
 }
 

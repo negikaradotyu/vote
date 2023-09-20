@@ -2,8 +2,7 @@
     body{
         margin: 5px;
         height: 100%;
-        font-family: 'UniqueFont3', sans-serif; /* カスタムフォントを適用し、代替フォントも指定 */
-        /* その他のスタイルを適用することもできます */
+
     }
     h1{
         font-size:200%;
@@ -54,9 +53,9 @@
                 
             .contents{
                 display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* 水平方向の中央揃え */
+                flex-direction: column;
+                justify-content: center;
+                align-items: center; /* 水平方向の中央揃え */
                 width: 90%;
                 height: auto;
                 margin: 0;
@@ -67,12 +66,14 @@
                     margin: 0;
                 }
                     .sub-content{
-                        height: 200px;
                         display: flex;
                         flex-direction: column;
                         width: 100%;
                         margin: 0;
                     }
+                        .tohyo-title{
+                            max-height: 150px;
+                        }
                         form{
                             display: flex;
                             flex-direction: row;
@@ -127,3 +128,42 @@
            margin-right: auto;
         }
 }
+
+@keyframes fadeout {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@media (max-width: 1080px) {
+    body{
+        margin: 5px;
+        height: 100%;
+
+    }
+    h1{
+        font-size:50px;
+    }
+    h2{
+        font-size:35px;
+    }
+    .daruma, .daruma2{
+        height: 100px;
+        width: 100px;
+    }
+    .links a{
+        font-size: 20px;
+        margin-right: 5px;
+    }
+    .highlight{
+        display: flex;
+        flex-direction: column;
+    }
+    .sub-content{
+        margin-bottom: 15px;
+    }
+    .tohyo-title{
+        margin: 0;
+    }
+    
+}
+

@@ -24,7 +24,7 @@ body{
         }
     
             .top-content {
-                width: 30%;
+                width: 200px;
                 background-color: rgb(181, 255, 255);
                 padding: 5px 5px 0 5px;
                 border-radius: 10px;
@@ -58,10 +58,12 @@ h2{
     color: rgb(254, 115, 68);
 }
 
-
+.online{
+    text-decoration: none;
+}
 h1{
     margin: 5px;
-    font-size: 76px;
+    font-size: 70px;
 }
 h2{
     margin: 0;
@@ -133,23 +135,33 @@ h2{
 }
 .form-group button{
     
-    font-size: 20px;
+    font-size: 15px;
 }
 .highlight{
     text-align: center;
     align-items: center;
     padding: 5px;
-    margin: 15px auto;
+    margin: 0 5px 10px 5px;
     color: brown;
     background-color: cornsilk;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width:95%;
+    font-size: 15px;
 
 }
 
 .sub-content{
-    width: 100%;
-    margin-bottom: 5px;
-    font-size: 25px;
+    width: 90%;
+    margin-bottom: 15px;
+    font-size: 20px;
+    
+}
+
+.subtitle{
+    border-bottom: 2px solid rgb(19, 124, 44);
 }
 
 .tohyo-title{
@@ -158,9 +170,10 @@ h2{
     max-height: 80%; /* .tohyo-title の高さを親要素の60%に設定 */
     margin: 5px 5px;
     background-color: rgb(225, 255, 252);
-    font-size: 20px;
+    font-size: 13px;
     padding: 5px;
     line-height: 30px;
+    border-radius: 20px;
 }
 .email{
     margin-left: 10px;
@@ -174,6 +187,7 @@ input{
     margin: 5px;
     resize: none;
     padding: 2px;
+    width: 80%;
 }
 .email label,
 .password label {
@@ -186,7 +200,7 @@ input{
     margin-bottom: 5px;
     background-color: azure;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 15px;
 }
 .registerform{
     background-color:azure;
@@ -197,18 +211,18 @@ input{
 .registerform a {
     padding: 5px;
     margin: 5px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .registerform p {
     padding: 5px;
     margin: 5px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .subtitle{
     margin: 5px;
-    padding: 3px;
+    
 }
 
 
@@ -229,6 +243,11 @@ input{
 
 .profile{
     height: 60%;
+}
+
+.face{
+    height: 100px;
+    width: 100px;
 }
 
 

@@ -1,16 +1,6 @@
 @extends('layouts.app') 
 
 @section('content')
-    <main>
-        <div class="top-menu">
-            <div class="links">
-                <a href="">国政選挙</a>
-                <a href="">首長選挙</a>
-                <a href="">県議会選挙</a>
-                <a href="">市議会選挙</a>
-                <a href="">投票結果</a>
-            </div>
-        </div>
         <div class="contents">
             <div class="top-content">
                 <div class="sub-content">
@@ -33,11 +23,43 @@
                                 <button type="submit">ログイン</button>
                             </div>
                         </form>
+                        <div class="registerform">
+                        <a href="/register.php">
+                            会員登録はこちらから
+                        </a>
+                        <p>会員登録すると、オンライン投票ができます。</p>
+                    </div>
                     </div>
                     @else
                         <!-- ログイン済みのユーザー向けのコンテンツ -->
                     <div class="profile">
-                        <p>Welcome, {{ Auth::user()->name }}</p>
+                        <p>有権者： {{ Auth::user()->username }}</p>
+                        @if (Auth::user()->age_group ==1)
+                            <?php $age="18才未満" ?>
+                        @elseif (Auth::user()->age_group ==2)
+                            <?php $age="18才以上&20代" ?>
+                        @elseif (Auth::user()->age_group ==3)
+                            <?php $age="30代" ?>
+                        @elseif (Auth::user()->age_group ==4)
+                            <?php $age="40代" ?>
+                        @elseif (Auth::user()->age_group ==5)
+                            <?php $age="50代" ?>
+                        @elseif (Auth::user()->age_group ==6)
+                            <?php $age="60代" ?>
+                        @elseif (Auth::user()->age_group ==7)
+                            <?php $age="70代" ?>
+                        @endif
+                        @if(Auth::user()->gender==1)
+                            <?php $gender="男性" ?>
+                            
+                        @elseif(Auth::user()->gender==2)
+                            <?php $gender="女性" ?>
+                            
+                        @elseif(Auth::user()->gender==3)
+                            <?php $gender="不明" ?>
+                        @endif
+                        <p>{{$age, $gender}}</p>
+                        <p> 被選挙区： {{ Auth::user()->location }}民</p>
                         <a href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         ログアウト
@@ -47,31 +69,25 @@
                         </form>
                     </div>
                     @endif
-                    <div class="registerform">
-                        <a href="/register.php">
-                            会員登録はこちらから
-                        </a>
-                        <p>会員登録すると、オンライン投票ができます。</p>
-                    </div>
+                    
                 </div>
                 <div class="sub-content">
                     <div class="subtitle">
                         <p>新着情報</p>
                     </div>
                     <div class="tohyo-title">
-                        <p>新しい000000000000 <br>000 <br>000 
-                            <br>0000 <br>0000 <br>000  
-                            <br>0000 <br>00000 <br>000 <br>0000 <br>000 <br> 
-                            00000000000000000000000000000000000</p>
+                        @foreach($senkyotitle as $title)
+                            <a href="">{{$title}} 投票開始</a><br>
+                        @endforeach
                     </div>
                 </div>
                 <div class="sub-content">
                     <div class="subtitle">
                         <p>今週の注目選挙！</p>
-                        <div class="highlight">
-                            <img class="daruma" src= "/img/7147.png" alt="">
-                            <p>汚職市市長選挙<br>達磨氏再選なるか！？</p>
-                        </div>
+                    </div>
+                    <div class="highlight">
+                        <img class="daruma" src= "/img/7147.png" alt="">
+                        <a>汚職市市長選挙<br>達磨氏再選なるか！？</a>
                     </div>
                 </div>
             </div>
@@ -80,7 +96,7 @@
                     <p>都道府県から選ぶ</p>
                     <div id="jp_map">
                         @php
-                            $kenmeiData = DB::table('kenmei')->get();
+                            $kenmeiData = DB::table('kenmeis')->get();
                             $kens = $kenmeiData->pluck('ken'); // 'ken'カラムを取得
                         @endphp
                         @foreach($kens as $ken)
@@ -91,17 +107,17 @@
                 <div class="allken">
                     <div class="links2">
                         @php
-                            $kenmeiData = DB::table('kenmei')->get();
+                            $kenmeiData = DB::table('kenmeis')->get();
                             $kenmeis = $kenmeiData->pluck('ken2'); // 'ken2'カラムを取得
                         @endphp
                         @foreach($kenmeis as $kenmei)
                             @if($kenmei<>null)
-                            {!! $kenmei !!} <br> {{-- {!! !!} を使ってエスケープしない --}}
+                            {!! $kenmei !!}  {{-- {!! !!} を使ってエスケープしない --}}
                             @endif
+                            
                         @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </main>
 @endsection

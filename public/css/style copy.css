@@ -1,8 +1,7 @@
 body{
     margin: 5px;
     height: 100%;
-    font-family: 'UniqueFont3', sans-serif; /* カスタムフォントを適用し、代替フォントも指定 */
-    /* その他のスタイルを適用することもできます */
+
 }
 
     header{
@@ -18,7 +17,7 @@ body{
         .top-menu {
             height: auto;
             padding: 10px;
-            font-size: 25px;
+            font-size: 20px;
             width: 80%;
             border-radius: 15px;
             margin: 2px 0 10px 0;
@@ -33,26 +32,33 @@ body{
             height: auto;
         }
             .top-content {
-                height: 850px;
-
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 30%;
             }
                 .sub-content{
-                    height: 33%;
+                    height: auto;
                     display: flex;
                     flex-direction: column;
                 }
+                    .tohyo-title{
+                        max-height: 150px;
+                    }
         .bottom-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            width: 70%;
             }
             .allmap {
                 width: 90%;
                 margin: 10px;
                 padding: 10px;
                 align-items: center;
-                height: 650px;
+                height: 400px;
                 text-align: center;
 
             }
