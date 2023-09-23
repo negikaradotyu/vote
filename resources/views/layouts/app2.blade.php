@@ -76,7 +76,7 @@
         <div class="links">
             <a href="/kokusei">国政選挙</a>
             <a href="/kumityo">首長選挙</a>
-            <a href="/kengikai">県議会選挙</a>
+            <a href="/kengikai">道/府/県議会選挙</a>
             <a href="/shigikai">市議会選挙</a>
             <a href="/kekka">投票結果</a>
         </div>

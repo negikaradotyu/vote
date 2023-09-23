@@ -4,12 +4,7 @@
         height: 100%;
 
     }
-    h1{
-        font-size:200%;
-    }
-    h2{
-        font-size:150%;
-    }
+
     .daruma, .daruma2{
         height: 80%;
         width: 20%;
@@ -25,14 +20,13 @@
             }
         main {
             display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* 水平方向の中央揃え */
+            flex-direction: column;
+            align-items: center; /* 水平方向の中央揃え */
         }
             .top-menu {
                 height: auto;
-                padding: 10px;
-                font-size: 25px;
+                padding: 2px;
+                font-size: 16px;
                 width: 90%;
                 border-radius: 15px;
                 margin: 2px 0 10px 0;
@@ -108,7 +102,6 @@
                 .allmap p{
                     padding: 5px;
                     border-radius: 20px;
-                    background-color: aquamarine;
                     margin-top: 10px;
                     width: 100%;
                 }
@@ -141,28 +134,37 @@
 
     }
     h1{
-        font-size:50px;
-    }
-    h2{
         font-size:35px;
     }
+    h2{
+        font-size:20px;
+    }
     .daruma, .daruma2{
-        height: 100px;
-        width: 100px;
+        height: 70px;
+        width: 70px;
     }
     .links a{
-        font-size: 20px;
+        font-size: 18px;
         margin-right: 5px;
     }
     .highlight{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        margin-left:  auto;
+        margin-right:  auto;
     }
     .sub-content{
-        margin-bottom: 15px;
+        margin-bottom: 5px 0;
     }
     .tohyo-title{
         margin: 0;
+        margin-left:  auto;
+        margin-right:  auto;
+    }
+    .loginform{
+        width: 95%;
+        margin-left:  auto;
+        margin-right:  auto;
     }
     
 }

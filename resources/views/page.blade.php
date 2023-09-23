@@ -1,6 +1,6 @@
-@extends('layouts.app2') 
+@extends('layouts.app') 
 
-@section('kensenkyo')
+@section('content')
 
     <h3>{{ $kenkanji }}ページ</h3>
     @if(count($senkyos)>=1)
@@ -9,6 +9,7 @@
                 $kenmeis[]=$senkyo['ken'];
                 $titles[]=$senkyo['title'];
                 $amounts[]=$senkyo['amount'];
+                $dates[]=$senkyo['date'];
                 $ids[]=$senkyo['id'];
             ?>
         @endforeach
@@ -17,7 +18,8 @@
             $ken=array_unique($kenmeis);
             $title=array_unique($titles);
             $amount=array_unique($amounts);
-            $id=array_unique($ids);
+            $date=array_unique($dates);
+            $id= array_unique($ids);
             $id = array_values($id);
         ?>
         <?php $n=0 ?>
@@ -38,6 +40,10 @@
         @endforeach
     
         @foreach($amount as $k)
+            <p>{{$k}}</p>
+        @endforeach
+
+        @foreach($date as $k)
             <p>{{$k}}</p>
         @endforeach
     

@@ -71,14 +71,14 @@ h2{
 }
 
 .daruma{
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     transform: scaleX(-1);
 }
 
 .daruma2{
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     transform: scaleX(-1);
 }
 
@@ -104,7 +104,7 @@ h2{
 
 
 .links a{
-    margin: 5px 10px;
+    margin: 2px 5px;
     cursor: pointer;
     padding: 5px;
     border: none;
@@ -138,10 +138,9 @@ h2{
     font-size: 15px;
 }
 .highlight{
-    text-align: center;
     align-items: center;
     padding: 5px;
-    margin: 0 5px 10px 5px;
+    margin: 0 5px 0 5px;
     color: brown;
     background-color: cornsilk;
     border-radius: 20px;
@@ -150,7 +149,9 @@ h2{
     height: auto;
     width:95%;
     font-size: 15px;
-
+}
+.highlight a{
+    margin-left: 10px;
 }
 
 .sub-content{
@@ -170,10 +171,14 @@ h2{
     max-height: 80%; /* .tohyo-title の高さを親要素の60%に設定 */
     margin: 5px 5px;
     background-color: rgb(225, 255, 252);
-    font-size: 13px;
+    font-size: 15px;
     padding: 5px;
     line-height: 30px;
     border-radius: 20px;
+    text-wrap: nowrap;
+}
+.tohyo-title a{
+    padding-left: 15px;
 }
 .email{
     margin-left: 10px;

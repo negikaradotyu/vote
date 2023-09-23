@@ -7,7 +7,7 @@ body{
     min-height: 100vh; /* ビューポートの高さいっぱいにmain要素を広げる */
     width: 90%;
     background-color: aquamarine;
-    margin: 0 auto; /* 左右の余白を自動調整して中央に寄せる */
+    margin: 5px auto; /* 左右の余白を自動調整して中央に寄せる */
 }
 .kouhosha-list{
     display: flex;
