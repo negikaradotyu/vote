@@ -41,14 +41,17 @@ body{
     src: url('/fonts/uniquefont2.otf') format('opentype'); /* フォントファイルへのパスを指定 */
     /* 他のフォント形式も追加することができます (e.g., woff, woff2, ttf) */
     font-family: 'UniqueFont'; /* フォントファミリーの名前を指定 */
-    src: url('/fonts/uniquefont1.ttf') format('opentype'); /* フォントファイルへのパスを指定 */
+    src: url('/fonts/uniquefont.ttf') format('opentype'); /* フォントファイルへのパスを指定 */
+    font-family: 'hude'; /* フォントファミリーの名前を指定 */
+    src: url('/fonts/hude.ttf') format('opentype'); /* フォントファイルへのパスを指定 */
     font-family: 'UniqueFont3'; /* フォントファミリーの名前を指定 */
     src: url('/fonts/gomarice_mukasi_mukasi.ttf') format('opentype'); /* フォントファイルへのパスを指定 */
+
 
 }
 
 h1{
-    font-family: 'UniqueFont3', sans-serif; /* カスタムフォントを適用し、代替フォントも指定 */
+    font-family: 'UniqueFont3'; /* カスタムフォントを適用し、代替フォントも指定 */
     /* その他のスタイルを適用することもできます */
     color: rgb(186, 51, 6);
 }
@@ -63,11 +66,11 @@ h2{
 }
 h1{
     margin: 5px;
-    font-size: 70px;
+    font-size: 62px;
 }
 h2{
     margin: 0;
-    font-size: 50px;
+    font-size: 46px;
 }
 
 .daruma{
@@ -140,14 +143,13 @@ h2{
 .highlight{
     align-items: center;
     padding: 5px;
-    margin: 0 5px 0 5px;
+    margin: 0 5px 10px 5px;
     color: brown;
     background-color: cornsilk;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     height: auto;
-    width:95%;
     font-size: 15px;
 }
 .highlight a{
@@ -166,7 +168,6 @@ h2{
 }
 
 .tohyo-title{
-    width: 95%;
     overflow: auto; /* テキストが要素からはみ出た場合にスクロールバーを表示 */
     max-height: 80%; /* .tohyo-title の高さを親要素の60%に設定 */
     margin: 5px 5px;
@@ -208,6 +209,8 @@ input{
     font-size: 15px;
 }
 .registerform{
+    width: 95%;
+    margin: auto auto;
     background-color:azure;
     height: 30%;
     padding: 5px;
@@ -251,7 +254,6 @@ input{
 }
 
 .face{
-    height: 100px;
     width: 100px;
 }
 

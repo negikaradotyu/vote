@@ -1,17 +1,27 @@
-@extends('layouts.app2') 
+@extends('layouts.app') 
 
-@section('kensenkyo')
-
+@section('content')
+<div class="main-content">
     <div class="senkyo-header">
-        <div class="senkyo-title">{{$senkyotitle}}</div>
-        <div class="senkyo-title">{{$kouhoshas[0]['date']}}</div>
-        <div class="senkyo-title">{{$kouhoshas[0]['id']}}</div>
-        <div class="senkyo-title">{{$kouhoshas[0]['date2']}}</div>
-        <div class="senkyo-title">{{$kouhoshas[0]['past']}}</div>
-        <div class="senkyo-title">{{$kouhoshas[0]['amount']}}</div>
+        <div class="senkyo-title"><i class="fa-regular fa-handshake fa-shake" style="color: #000000;"></i> {{$senkyotitle}} <i class="fa-regular fa-handshake fa-shake" style="color: #000000;"></i></div>
+        <div class="other">
+            <div class="dateinfo">
+                <div >投票日：{{$kouhoshas[0]['date']}}</div>
+                <div >告知日：{{$kouhoshas[0]['date2']}}</div>
+            </div>
+            <div class="otherinfo">
+                <div >前回投票率：{{$kouhoshas[0]['past']}}</div>
+                <div >定数/候補者数：{{$kouhoshas[0]['amount']}}</div>
+            </div>
+        </div>
+        <div class="form-group-tohyo">
+            <a href="/totyu/{{$kouhoshas[0]['id']}}">
+                <button type="submit"><i class="fa-regular fa-eye fa-beat" style="color: #000000;"></i>途中経過を見る</button>
+            </a>
+        </div>
     </div>
     <div class="kouhosha-list">
-        @foreach($kouhoshas as $kouhosha)
+    @foreach($kouhoshas as $kouhosha)
         <div class="kouhosha">        
             <div class="face">
                 @if($kouhosha['face']=="no image")
@@ -46,4 +56,5 @@
         </div>
     @endforeach
     </div>
+</div>
 @endsection

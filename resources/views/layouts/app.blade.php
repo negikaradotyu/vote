@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
-    <link rel="stylesheet" href="{{'/css/style.css'}}">
+    
+    <link rel="stylesheet" href="{{'/css/senkyo.css'}}">
     <link rel="stylesheet" href="{{'/css/style copy.css'}}">
     <link rel="stylesheet" href="{{'/css/map.css'}}">
     <link rel="stylesheet" href="{{'/css/allken.css'}}">
+    <link rel="stylesheet" href="{{'/css/style.css'}}">
+    <link rel="stylesheet" href="{{'/css/page.css'}}">
     <link rel="stylesheet" href="{{'/css/res.css'}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -78,104 +82,101 @@
             @endforeach
         </div>
     </div>
-<div class="contents">
-    <div class="top-content">
-        <div class="sub-content">
-            @if (Auth::guest())
+    <div class="contents">
+        <div class="top-content">
+            <div class="sub-content">
+                @if (Auth::guest())
+                    <div class="subtitle">
+                        <p>Login</p>
+                    </div>
+                    <div class="loginform">
+                        <form method="POST" action="{{ route('login') }}" class="form">
+                            @csrf
+                            <div class="email">
+                                <label for="email">email：</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="password">
+                                <label for="password">パスワード：<br></label>
+                                <input type="password" id="password" name="password">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit">ログイン</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="registerform">
+                        <a href="/register.php">
+                            会員登録はこちらから
+                        </a>
+                        <p>会員登録すると、オンライン投票ができます。</p>
+                    </div>
+                @else
+                        <!-- ログイン済みのユーザー向けのコンテンツ -->
+                    <div class="profile">
+                        <p>有権者： {{ Auth::user()->username }}</p>
+                        @if (Auth::user()->age_group ==1)
+                            <?php $age="18才未満" ?>
+                        @elseif (Auth::user()->age_group ==2)
+                            <?php $age="18才以上&20代" ?>
+                        @elseif (Auth::user()->age_group ==3)
+                            <?php $age="30代" ?>
+                        @elseif (Auth::user()->age_group ==4)
+                            <?php $age="40代" ?>
+                        @elseif (Auth::user()->age_group ==5)
+                            <?php $age="50代" ?>
+                        @elseif (Auth::user()->age_group ==6)
+                            <?php $age="60代" ?>
+                        @elseif (Auth::user()->age_group ==7)
+                            <?php $age="70代" ?>
+                        @endif
+                        @if(Auth::user()->gender==1)
+                            <?php $gender="男性" ?>
+                            
+                        @elseif(Auth::user()->gender==2)
+                            <?php $gender="女性" ?>
+                            
+                        @elseif(Auth::user()->gender==3)
+                            <?php $gender="不明" ?>
+                        @endif
+                        <p>{{$age, $gender}}</p>
+                        <p> 被選挙区： {{ Auth::user()->location }}民</p>
+                        <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        ログアウト
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                @endif
+            </div>
+            <div class="sub-content">
                 <div class="subtitle">
-                    <p>Login</p>
+                    <p>新着情報</p>
                 </div>
-                <div class="loginform">
-                    <form method="POST" action="{{ route('login') }}" class="form">
-                        @csrf
-                        <div class="email">
-                            <label for="email">email：</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        <div class="password">
-                            <label for="password">パスワード：<br></label>
-                            <input type="password" id="password" name="password">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit">ログイン</button>
-                        </div>
-                    </form>
+                <div class="tohyo-title">
+                    @foreach($senkyotitles as $title)
+                        <a href="">{{$title}} 投票開始</a><br>
+                    @endforeach
                 </div>
-                <div class="registerform">
-                    <a href="/register.php">
-                        会員登録はこちらから
-                    </a>
-                    <p>会員登録すると、オンライン投票ができます。</p>
-                </div>
-            @else
-                    <!-- ログイン済みのユーザー向けのコンテンツ -->
-                <div class="profile">
-                    <p>有権者： {{ Auth::user()->username }}</p>
-                    @if (Auth::user()->age_group ==1)
-                        <?php $age="18才未満" ?>
-                    @elseif (Auth::user()->age_group ==2)
-                        <?php $age="18才以上&20代" ?>
-                    @elseif (Auth::user()->age_group ==3)
-                        <?php $age="30代" ?>
-                    @elseif (Auth::user()->age_group ==4)
-                        <?php $age="40代" ?>
-                    @elseif (Auth::user()->age_group ==5)
-                        <?php $age="50代" ?>
-                    @elseif (Auth::user()->age_group ==6)
-                        <?php $age="60代" ?>
-                    @elseif (Auth::user()->age_group ==7)
-                        <?php $age="70代" ?>
-                    @endif
-                    @if(Auth::user()->gender==1)
-                        <?php $gender="男性" ?>
-                        
-                    @elseif(Auth::user()->gender==2)
-                        <?php $gender="女性" ?>
-                        
-                    @elseif(Auth::user()->gender==3)
-                        <?php $gender="不明" ?>
-                    @endif
-                    <p>{{$age, $gender}}</p>
-                    <p> 被選挙区： {{ Auth::user()->location }}民</p>
-                    <a href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    ログアウト
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            @endif
-        </div>
-        <div class="sub-content">
-            <div class="subtitle">
-                <p>新着情報</p>
             </div>
-            <div class="tohyo-title">
-                @foreach($senkyotitles as $title)
-                    <a href="">{{$title}} 投票開始</a><br>
-                @endforeach
+            <div class="sub-content">
+                <div class="subtitle">
+                    <p>今週の注目選挙！</p>
+                </div>
+                <div class="highlight">
+                    <img class="daruma" src= "/img/7147.png" alt="">
+                    <a>汚職市市長選挙<br>達磨氏再選なるか！？</a>
+                </div>
             </div>
         </div>
-        <div class="sub-content">
-            <div class="subtitle">
-                <p>今週の注目選挙！</p>
-            </div>
-            <div class="highlight">
-                <img class="daruma" src= "/img/7147.png" alt="">
-                <a>汚職市市長選挙<br>達磨氏再選なるか！？</a>
-            </div>
-        </div>
+        @yield('content')
     </div>
-    @yield('content')
-</div>
-    
-    
-
-    
+</main>
     <footer>
         <p class="info"> © Tsurugenef</p>
     </footer>
-    </main>
+    
 </body>
 </html>

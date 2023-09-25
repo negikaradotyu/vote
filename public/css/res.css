@@ -81,6 +81,7 @@
                         .highlight{
                             display: flex;
                             flex-direction: row;
+                            width: 95%;
                         }
                         
             .bottom-content {
@@ -119,6 +120,15 @@
            margin-bottom: 20px;
            margin-left: auto;
            margin-right: auto;
+        }
+        .senkyo-title{
+            font-size: 38px;
+            font-family: fude;
+            font-weight: 800;
+            border-bottom: solid 5px darkgreen;
+        }
+        .main-content{
+            width: 100%;
         }
 }
 
@@ -160,12 +170,19 @@
         margin: 0;
         margin-left:  auto;
         margin-right:  auto;
+        width: 95%;
     }
     .loginform{
         width: 95%;
         margin-left:  auto;
         margin-right:  auto;
     }
+    .senkyo-title{
+        font-size: 28px;
+        font-family: fude;
+        font-weight: 800;
+        border-bottom: solid 5px darkgreen;
     
+    }
 }
 

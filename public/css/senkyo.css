@@ -2,6 +2,39 @@ body{
     display: flex;
     flex-direction: column;
 }
+.main-content{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.senkyo-header{
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto;
+    font-size: 15px;
+}
+.senkyo-title{
+    font-size: 36px;
+    font-weight: 800;
+    border-bottom: solid 5px darkgreen;
+    font-family: 'UniqueFont3';
+
+}
+.other{
+    display: flex;
+    flex-direction: row;
+    margin:5px auto 0 auto
+}
+.dateinfo{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+.otherinfo{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
 .centered-main {
     display: flex; /* Flexboxを使用 */
     min-height: 100vh; /* ビューポートの高さいっぱいにmain要素を広げる */
@@ -60,7 +93,7 @@ body{
     justify-content: center;    
 }
 .face a{
-    margin: auto auto;
+    margin: 5px auto;
 }
 .no-image{
     margin: auto auto;

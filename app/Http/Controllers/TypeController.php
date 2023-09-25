@@ -14,9 +14,43 @@ class TypeController extends Controller
     }
     public function type($type_name)
     {
+        //dd($type_name);
         $user = \Auth::user();
         $types=Types::get();
-        $senkyos=Kouhos::get();
+        $senkyosall=Kouhos::get();
+        $senkyos=[];
+        if($type_name=="kuni"){
+            $group1="衆議";
+            $group2="参議";
+            $group3="xxx";
+        }
+        elseif($type_name=="kubi"){
+            $group1="知事";
+            $group2="市長";
+            $group3="町長";
+        }
+        elseif($type_name=="kengi"){
+            $group1="県議会";
+            $group2="xxx";
+            $group3="xxx";
+        }
+        elseif($type_name=="shigi"){
+            $group1="市議会";
+            $group2="xxx";
+            $group3="xxx";
+            //dd($type_name);
+        }
+        foreach($senkyosall as $sen){
+            if(strpos($sen['title'], $group1) !== false || strpos($sen['title'], $group2) !== false || strpos($sen['title'], $group3) !== false){
+                $senkyos[]=$sen;
+            }
+        };
+        if(empty($senkyos)){
+            $senkyos[]="現在、対象となる選挙は行われていません。";
+        }
+
+
+
         $info=Kouhos::orderBy('create_at', 'DESC' )->get();
         $types=Types::get();
             foreach($info as $sen){
