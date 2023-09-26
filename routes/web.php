@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Kenlists;
 use App\Models\Types;
 use App\Models\Kouhos;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,10 +58,11 @@ Route::get('/page_{kenname}', function ($kenname) {
     return view('page', compact('types', 'kenname','kenkanji', 'senkyos', 'senkyotitles'));
 });
 
-Route::get('/category/{category}', [App\Http\Controllers\HomeController::class, 'category'])->name('category');
+Route::get('/register', [App\Http\Controllers\RegisterController::class, 'register'])->name('register');
 Route::get('/online-vote', [App\Http\Controllers\HomeController::class, 'index'])->name('vote');
 Route::get('/senkyo/{id}', [App\Http\Controllers\HomeController::class, 'senkyo'])->name('senkyo');
 Route::get('/type/{type_name}', [App\Http\Controllers\TypeController::class, 'type'])->name('type');
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+Route::post('/store', [App\Http\Controllers\RegisterController::class, 'store'])->name('store');
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

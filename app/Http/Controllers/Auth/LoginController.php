@@ -1,41 +1,48 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use AuthenticatesUsers;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; // Authファサードのuse文を追加
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request; // 追加
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+
 
 class LoginController extends Controller
 {
-    public function login(Request $request)
+    use AuthenticatesUsers;
+
+    protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function __construct()
     {
-        // バリデーションルールを定義
-        $rules = [
-            'email' => 'required|email',
-            'password' => 'required',
-        ];
-
-        // バリデーションを実行
-        $this->validate($request, $rules);
-
-        // 認証を試みる
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            // ログイン成功時の処理
-            return redirect()->intended('/online-vote'); // ログイン後のリダイレクト先
-        } else {
-            // ログイン失敗時の処理
-            return back()->withErrors(['email' => 'ログインに失敗しました。'])->withInput();
-        }
+        $this->middleware('guest')->except('logout');
     }
 
     public function logout(Request $request)
     {
-        Auth::logout(); // ユーザーをログアウトさせる
+        $this->guard()->logout();
 
-        return redirect('/online-vote'); // ログアウト後のリダイレクト先を指定
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/online-vote'); // 修正
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // ログイン成功時の処理
+            return redirect()->intended($this->redirectTo);
+        } else {
+            // ログイン失敗時の処理
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ])->withInput();
+        }
+
     }
 }
-
-

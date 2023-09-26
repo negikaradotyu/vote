@@ -12,7 +12,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        // $this->middleware('auth');
+        //$this->middleware('auth');
 
     }
     
@@ -20,6 +20,7 @@ class HomeController extends Controller
     {
         $types=Types::get();
         $user = \Auth::user();
+        //dd(Auth::user());
         $senkyos=Kouhos::orderBy('create_at', 'DESC' )->get();
         foreach($senkyos as $sen){
             $senkyo_id[]=$sen["title"];

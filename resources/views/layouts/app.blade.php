@@ -106,7 +106,7 @@
                         </form>
                     </div>
                     <div class="registerform">
-                        <a href="/register.php">
+                        <a href="/register">
                             会員登録はこちらから
                         </a>
                         <p>会員登録すると、オンライン投票ができます。</p>
@@ -116,27 +116,29 @@
                     <div class="profile">
                         <p>有権者： {{ Auth::user()->username }}</p>
                         @if (Auth::user()->age_group ==1)
-                            <?php $age="18才未満" ?>
-                        @elseif (Auth::user()->age_group ==2)
                             <?php $age="18才以上&20代" ?>
-                        @elseif (Auth::user()->age_group ==3)
-                            <?php $age="30代" ?>
-                        @elseif (Auth::user()->age_group ==4)
-                            <?php $age="40代" ?>
-                        @elseif (Auth::user()->age_group ==5)
-                            <?php $age="50代" ?>
-                        @elseif (Auth::user()->age_group ==6)
-                            <?php $age="60代" ?>
+                        @elseif (Auth::user()->age_group ==0)
+                            <?php $age="18才未満" ?>
                         @elseif (Auth::user()->age_group ==7)
+                            <?php $age="80代以上" ?>
+                        @elseif (Auth::user()->age_group ==2)
+                            <?php $age="30代" ?>
+                        @elseif (Auth::user()->age_group ==3)
+                            <?php $age="40代" ?>
+                        @elseif (Auth::user()->age_group ==4)
+                            <?php $age="50代" ?>
+                        @elseif (Auth::user()->age_group ==5)
+                            <?php $age="60代" ?>
+                        @elseif (Auth::user()->age_group ==6)
                             <?php $age="70代" ?>
                         @endif
-                        @if(Auth::user()->gender==1)
+                        @if(Auth::user()->gender==0)
                             <?php $gender="男性" ?>
                             
-                        @elseif(Auth::user()->gender==2)
+                        @elseif(Auth::user()->gender==1)
                             <?php $gender="女性" ?>
                             
-                        @elseif(Auth::user()->gender==3)
+                        @elseif(Auth::user()->gender==2)
                             <?php $gender="不明" ?>
                         @endif
                         <p>{{$age, $gender}}</p>

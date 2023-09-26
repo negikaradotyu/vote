@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{'/css/style.css'}}">
     <link rel="stylesheet" href="{{'/css/senkyo.css'}}">
+    <link rel="stylesheet" href="{{'/css/register.css'}}">
     <link rel="stylesheet" href="{{'/css/style copy.css'}}">
     <link rel="stylesheet" href="{{'/css/map.css'}}">
     <link rel="stylesheet" href="{{'/css/allken.css'}}">
@@ -71,20 +72,8 @@
         img.addEventListener('animationend', handleAnimationEnd);
     });
 </script>
-<main class="centered-main">
-    <div class="top-menu">
-        <div class="links">
-            <a href="/kokusei">国政選挙</a>
-            <a href="/kumityo">首長選挙</a>
-            <a href="/kengikai">道/府/県議会選挙</a>
-            <a href="/shigikai">市議会選挙</a>
-            <a href="/kekka">投票結果</a>
-        </div>
-    </div>
-
-
-
-    @yield('kensenkyo')
+<main class="center-main">
+        @yield('content')
 </main>
     <footer>
         <p class="info"> © Tsurugenef</p>
